@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <title>FD ERP</title>
+
+  <!-- CSS for form -->
+
+  <link href="style/unmod_css.css" rel="stylesheet">
+  <link href="style/floating-labels.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <!-- CSS for navbar -->
+
+  <link rel="stylesheet" media="screen" href="../../Modified Homepage/theme4.css">
+
+  <link href="../../Modified Homepage/fontawesome-free-5.8.1-web/css/all.min.css" rel="stylesheet">
+
+
+
+
+  <!-- custom CSS -->
+  <style>
+    .container {
+      padding-top: 15px;
+    }
+
+    /* custom CSS for navbar */
+
+
+    .bg-dark {
+
+      background-color: rgb(3, 11, 51) !important
+    }
+
+
+    .nav-pills .nav-link:hover {
+      border-color: #d0a73f;
+      background-color: #d0a73f;
+      color: black !important
+    }
+
+    .clock {
+
+      font-size: 11px;
+      letter-spacing: 1px;
+
+    }
+
+    .date {
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .navbar-brand {
+      display: block;
+      width: 127px;
+      color: #d0a73f;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+
+    }
+
+    /* custom CSS for form */
+
+    .custom-control-input:checked~.custom-control-label:before {
+
+      color: #fff;
+      background-color: #05668D;
+      border-color: #9BC4CB;
+
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #05668D;
+      border-color: #05668D;
+
+    }
+
+    .btn-primary:hover {
+
+
+      background-color: #064789;
+      border-color: #064789;
+
+    }
+
+    .btn-primary:focus,
+    .btn-primary.focus {
+      box-shadow: 0 0 0 0 #05668D;
+    }
+
+    .select2-container--bootstrap4 .select2-results__option--highlighted[aria-selected] {
+      background-color: #05668D;
+      color: #fff;
+    }
+
+    .card.material-table {
+      width: 1117px;
+    }
+
+    .table-bordered tr,
+    .table-bordered thead {
+      border: 1px solid #dee2e6;
+    }
+
+    .table thead th {
+      width: auto;
+      background-color: #05668D;
+      color: #fff;
+      white-space: nowrap;
+
+    }
+
+    .table td {
+      white-space: normal;
+
+    }
+
+    .font-weight-bolder {
+      font-weight: 900;
+    }
+  </style>
+</head>
+
+<body onload="countdown();">
+
+  <!-- Navbar-->
+  <header class="navbar-wrapper navbar-sticky bg-dark text-white">
+
+    <div class="d-table-cell align-middle pr-md-3"><a class="navbar-brand mr-1"
+        href="../Modified Homepage/mod_Navbar2.html">
+        <!-- <img src="assets/logo/sksl_logo.jpg" alt="SKSL" style="height:50px;width:45px;"/> -->
+        S.K.Samanta &amp; Co.(P)
+      </a></div>
+
+    <div class="d-table-cell w-100 align-middle pl-md-3">
+
+      <div class="navbar-top d-none d-lg-flex justify-content-end align-items-center">
+        <ul class="list-inline mb-0">
+          <li>
+            <span style="font-size: 11px">Time left</span>
+            <input id="minutes" style="width:15px;
+                                              border: none; font-size: 11px;
+                                              font-weight: bold; color: black; text-align: center" readonly>
+            <span>:</span>
+            <input id="seconds" style="width:15px;
+                                                    border: none; font-size: 11px;
+                                                    font-weight: bold; color: black; text-align: center" readonly>
+
+          </li>
+          <li>
+
+            <span id="MyClockDisplay" class="clock" onload="showTime()"></span>
+          </li>
+
+          <li>
+
+            <span id="MyDateDisplay" class="date" onload="showDate()"></span>
+
+          </li>
+          <li class="dropdown-toggle mr-2"><a class="navbar-link" href="#"><i class="fas fa-user"></i>Test User</a>
+            <div class="dropdown-menu right-aligned text-center" style="min-width: 100px;">
+              <a class="dropdown-item" href="../Modified Homepage/AfterLogOut.html">Log out</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="navbar justify-content-end justify-content-lg-between">
+
+        <!-- Main Menu-->
+        <ul class="navbar-nav nav-pills d-none d-lg-block">
+          <!-- Home-->
+          <li class="nav-item"><a class="nav-link" href="../Modified Homepage/mod_Navbar2.html" style="color: #fff;"><i
+                class="fa fa-home"></i>&nbsp;Home</a>
+          </li>
+          <!-- Finance-->
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fas fa-coins"></i>&nbsp; Finance</a>
+
+            <div class="dropdown-menu mega-dropdown">
+
+              <div class="widget widget-custom-menu accordion-style-3">
+
+                <ul class="dropdown-menu" id="accordion1">
+
+                  <li class="dropdown-header font-weight-medium collapsed" href="#trans-submenu" data-toggle="collapse"
+                    aria-expanded="false">Accounts</li>
+                    <div id="trans-submenu" class="collapse" data-parent="#accordion1">
+
+
+                        <ul>
+                          <li><a href="../Modified Voucher_list/Voucher.html">Voucher Entry</a></li>
+                          <li><a href="../Modified Voucher_list/Bill_serial_insert.html">Bill Serial </a></li>
+                          <li><a href="#">Party Bill </a></li>
+                          <li><a href="../BG Trans/BG.html">Bank Gurantee</a></li>
+                          <li><a href="../Modified Voucher_list/Monthly_accounts_estimate.html">Monthly Estimate</a></li>
+                          <li><a href="#">RA Bill</a></li>
+                          <li><a href="../FD/index.html">Fixed Deposit</a></li>
+                          <li><a href="../Insurance/index.html">Insurance Policy</a></li>
+                        </ul>
+
+
+                      </div>
+
+                  <li class="dropdown-header font-weight-medium collapsed" href="#inv-submenu" data-toggle="collapse"
+                    aria-expanded="false">Inventory</li>
+                  <div id="inv-submenu" class="collapse" data-parent="#accordion1">
+                    <ul>
+                      <li><a href="#">Voucher Entry</a></li>
+                      <li><a href="#">Party Bill </a></li>
+                      <li><a href="#">Bank Gurantee</a></li>
+                      <li><a href="#">RA Bill</a></li>
+                      <li><a href="#">Fixed Deposit</a></li>
+                      <li><a href="#">Insurance Policy</a></li>
+                    </ul>
+                  </div>
+
+                  <li class="dropdown-header font-weight-medium collapsed" href="#mech-submenu" data-toggle="collapse"
+                    aria-expanded="false">Mechanical</li>
+                  <div id="mech-submenu" class="collapse" data-parent="#accordion1">
+                    <ul>
+                      <li><a href="#">Voucher Entry</a></li>
+                      <li><a href="#">Party Bill </a></li>
+                      <li><a href="#">Bank Gurantee</a></li>
+                      <li><a href="#">RA Bill</a></li>
+                      <li><a href="#">Fixed Deposit</a></li>
+                      <li><a href="#">Insurance Policy</a></li>
+                    </ul>
+                  </div>
+
+                  <li class="dropdown-header font-weight-medium collapsed" href="#cb-submenu" data-toggle="collapse"
+                    aria-expanded="false">Client Billing</li>
+                  <div id="cb-submenu" class="collapse" data-parent="#accordion1">
+                    <ul>
+                      <li><a href="#">Voucher Entry</a></li>
+                      <li><a href="#">Party Bill </a></li>
+                      <li><a href="#">Bank Gurantee</a></li>
+                      <li><a href="#">RA Bill</a></li>
+                      <li><a href="#">Fixed Deposit</a></li>
+                      <li><a href="#">Insurance Policy</a></li>
+                    </ul>
+                  </div>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </li>
+
+          <!-- Engineering-->
+
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fa fa-cogs"
+                aria-hidden="true"></i>&nbsp;Engineering</a>
+
+            <div class="dropdown-menu mega-dropdown">
+              <div class="widget widget-custom-menu accordion-style-3">
+
+                <ul class="dropdown-menu" id="accordion2">
+
+                  <li class="dropdown-header font-weight-medium  collapsed" href="#proj-submenu" data-toggle="collapse"
+                    aria-expanded="false">Project Costing</li>
+                  <div id="proj-submenu" class="collapse" data-parent="#accordion2">
+                    <ul>
+                      <li><a href="#">Tender Rate Annually</a></li>
+                      <li><a href="#">Project Reports</a></li>
+                      <li><a href="#">Drawings &amp; Activity</a></li>
+                      <li><a href="#">Profile Settings</a></li>
+
+                    </ul>
+                  </div>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </li>
+
+
+          <!-- HR and admin-->
+
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fa fa-users"
+                aria-hidden="true"></i>&nbsp;HR &amp; Admin</a>
+
+
+            <div class="dropdown-menu mega-dropdown">
+              <div class="widget widget-custom-menu accordion-style-3">
+
+                <ul class="dropdown-menu" id="accordion3">
+
+                  <li class="dropdown-header font-weight-medium  collapsed" href="#payroll-submenu"
+                    data-toggle="collapse" aria-expanded="false">Payroll</li>
+                  <div id="payroll-submenu" class="collapse" data-parent="#accordion3">
+                    <ul>
+                      <li><a href="#">HR &amp; Payroll Master </a></li>
+                      <li><a href="#">HR &amp; Payroll Transaction</a></li>
+                      <li><a href="#">HR &amp; Payroll Reports</a></li>
+                      <li><a href="#">Master Reports</a></li>
+                      <li><a href="#">Utility</a></li>
+
+                    </ul>
+                  </div>
+
+                </ul>
+
+              </div>
+            </div>
+
+          </li>
+          <!-- Labor-->
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fas fa-fist-raised"></i>&nbsp;Labor</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="#">Labor Transaction Entry</a></li>
+              <li class="dropdown-item"><a href="#">Labour Bills</a></li>
+              <li class="dropdown-item"><a href="#">Reports</a></li>
+              <li class="dropdown-item"><a href="#">Master List</a></li>
+              <li class="dropdown-item"><a href="#">Utility</a></li>
+
+            </ul>
+          </li>
+          <!-- Master-->
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fa fa-list"
+                aria-hidden="true"></i>&nbsp;Master</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"><a href="#">Primary Master</a></li>
+              <li class="dropdown-item"><a href="#">Account Master</a></li>
+              <li class="dropdown-item"><a href="#">Inventory Master</a></li>
+              <li class="dropdown-item"><a href="#">PO Master</a></li>
+              <li class="dropdown-item"><a href="#">Labor Master</a></li>
+
+            </ul>
+          </li>
+          <!-- Utility-->
+
+          <li class="nav-item dropdown-toggle"><a class="nav-link"><i class="fa fa-wrench"
+                aria-hidden="true"></i>&nbsp;Utility</a>
+            <ul class="dropdown-menu">
+
+              <li class="dropdown-item"><a href="#">Access Control</a></li>
+              <li class="dropdown-item"><a href="#">User Control</a></li>
+
+
+            </ul>
+          </li>
+
+        </ul>
+        <div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  <div class="container">
+
+    <!-- common header option for all three Vouchers -->
+
+    <form class="p-2 mb-2 text-dark" style="background-color:#62B6CB;">
+      <div class="form-row">
+        <div class="col-md-3">
+          <label class="form-label">Project code</label>
+          <select class="form-control select2" data-toggle="select2">
+            <option selected> Select Project </option>
+            <option value="047"> LKP/WTP 047 </option>
+            <option value="101"> REHABI. DUDHICHUA SILO 101 </option>
+            <option value="103"> KHADIA BASE WORKSHOP 103 </option>
+            <option value="104"> KHD-MID ENTRY 104 </option>
+            <option value="105"> IWSS/JHR 105 </option>
+            <option value="106"> BELPAHAR-UTLS 106 </option>
+            <option value="107"> DUDHICHUA MINE MID ENTRY 107 </option>
+            <option value="108"> SINGRAULI TEMPLE 108 </option>
+            <option value="109"> BELPAHAR CHP 109 </option>
+            <option value="110"> DCH/CHP MODIFICATION. 110 </option>
+            <option value="111"> IWSS/GORBI 111 </option>
+            <option value="112"> IWSS/NTPC 112 </option>
+            <option value="113"> IWSS/KAKRI 113 </option>
+            <option value="114"> DCH/HAUL RD. EXTN. 114 </option>
+            <option value="115"> MCC CONTROL ROOM AT BLPH 115 </option>
+            <option value="116"> JAYANT 2ND SILO 116 </option>
+            <option value="117"> JAYANT II-SILO SUPPLY 117 </option>
+            <option value="118"> NEGHAI E&M W/S 118 </option>
+            <option value="119"> JAYANT WORKSHOP 119 </option>
+            <option value="120"> IWSS/KHD 120 </option>
+            <option value="121"> KHD/CHP REHABILTATION 121 </option>
+            <option value="122"> NIGAHI HEMM W/S 122 </option>
+            <option value="123"> NIGAHI/HEMM WS (SUPPLY) 123 </option>
+            <option value="124"> DUDHICHUA LINER 124 </option>
+            <option value="125"> IWSS/SINGRAULI 125 </option>
+            <option value="126"> OB REMOVAL UMRED 126 </option>
+            <option value="127"> DCH EXCAVATION WORKSHOP (W & S) 127 </option>
+            <option value="128"> DCH EXCAVATION WORKSHOP (SUP) 128 </option>
+            <option value="129"> DCH CHP/PH-II (W&S) 129 </option>
+            <option value="130"> DCH CHP/PH-II (SUPPLY) 130 </option>
+            <option value="131"> RD. WORK (EXCA.&TRANS.) AT BWN 131 </option>
+            <option value="132"> IWSS/NTPC (ADDL.) 132 </option>
+            <option value="133"> ROAD WORK/RPL 133 </option>
+            <option value="134"> TRANS.STONE/BDK 134 </option>
+            <option value="135"> NGH CHP/PH-II (PACKAGE-A)(W&S) 135 </option>
+            <option value="136"> NGH-CHP/PH-II (PACKAGE-A)(SUPPLY) 136 </option>
+            <option value="137"> DCH/CHP CRUSHER HOUSE 137 </option>
+            <option value="138"> DIPKA SILO (W&S) 138 </option>
+            <option value="139"> DIPKA SILO (SUPPLY) 139 </option>
+            <option value="140"> NIGAHI CHP PH-II (PKG - B) (W&S) 140 </option>
+            <option value="141"> NIGAHI CHP PH-II (PKG - B) (S) 141 </option>
+            <option value="142"> JNV SCHOOL BUILDING/DGP 142 </option>
+            <option value="143"> INTERIM CHP-BLOCK B/GORBI (W/S) 143 </option>
+            <option value="144"> INTERIM CHP-BLOCK B/GORBI (S) 144 </option>
+            <option value="145"> DUDHICHUA 2ND SILO (W/S) 145 </option>
+            <option value="146"> DUDHICHUA 2ND SILO (S) 146 </option>
+            <option value="147"> ORE HANDLING PLANT W/S (BSP)-PKG-60 147 </option>
+            <option value="148"> COAL HANDLING PLANT W/S(BSP)-PKG-62 148 </option>
+            <option value="149"> GEVRA WORKSHOP (W/S) 149 </option>
+            <option value="150"> GEVRA WORKSHOP (S) 150 </option>
+            <option value="151"> DIPKA MAIN CHP (W/S) 151 </option>
+            <option value="152"> DIPKA MAIN CHP (S) 152 </option>
+            <option value="153"> MAHESPUR CHP (W&S) 153 </option>
+            <option value="154"> MAHESHPUR CHP (S) 154 </option>
+            <option value="155"> DIPKA WORK SHOP (W&S) 155 </option>
+            <option value="156"> DIPKA WORKSHOP (S) 156 </option>
+            <option value="157"> GEVRA SILO (W&S) 157 </option>
+            <option value="158"> GEVRA SILO (S) 158 </option>
+            <option value="159"> MADHUBAND WASHERY (W&S) 159 </option>
+            <option value="160"> MADHUBAND WASHERY (S) 160 </option>
+            <option value="161"> KUSMUNDA CHP PH-I (W&S) 161 </option>
+            <option value="162"> KUSMUNDA CHP PH-I (S) 162 </option>
+            <option value="163"> KHADIA WORKSHOP/STORE (W&S) 163 </option>
+            <option value="164"> KHADIA WORKSHOP/STORE (S) 164 </option>
+            <option value="165"> DVC-BTPS CHP (W&S) 165 </option>
+            <option value="166"> DVC-BTPS CHP (S) 166 </option>
+            <option value="167"> VISHAK HPCL BUILDING WORKS 167 </option>
+            <option value="168"> KUSHMUNDA SILO PH-II 168 </option>
+            <option value="169"> SONEPUR BAZARI CHP (ECL) 169 </option>
+            <option value="170"> JVROC COAL HANDLING PLANT 170 </option>
+            <option value="171"> JAYANT OCP COAL HANDLING PLANT 171 </option>
+            <option value="201"> BILASPUR STEEL DIVISION 201 </option>
+            <option value="301"> PAIKPARA BLD. PROJ. KOL 301 </option>
+            <option value="401"> ENGG. CONSUL. EXPAN./KAPURTHALA 401 </option>
+            <option value="501"> CSR PROJECT (DIPKA) 501 </option>
+            <option value="502"> CSR PROJECT (BOKRA) 502 </option>
+            <option value="503"> CSR PROJECT (BILASPUR) 503 </option>
+            <option value="504"> CSR PROJECT (BOKARO-BTPS) 504 </option>
+            <option value="505"> CSR PROJECT (MAHESPUR) 505 </option>
+            <option value="601"> BSP-OHP/HEC-SUPPLY ITEMS (PKG-60) 601 </option>
+            <option value="602"> BSP-CHP/HEC-SUPPLY ITEMS (PKG-62) 602 </option>
+            <option value="603"> KUSHMUNDA PH-II SUPPLY ITEMS 603 </option>
+            <option value="604"> SONEPUR CHP SUPPLY ITEMS 604 </option>
+            <option value="71"> RANCHI-ESTB 71 </option>
+            <option value="72"> RANCHI OFFICE 72 </option>
+            <option value="73"> NEW DELHI 73 </option>
+            <option value="74"> C R PARK 74 </option>
+            <option value="75"> JHARSUGUDA 75 </option>
+            <option value="76"> BILASPUR OFFICE 76 </option>
+            <option value="84"> KOLKATA OFFICE 84 </option>
+            <option value="85"> KOLKATA ESTB. 85 </option>
+            <option value="89"> JHR/CHP - EXP.A 89 </option>
+            <option value="95"> KHADIA TOP 95 </option>
+            <option value="96"> L.K.P/HSP 96 </option>
+            <option value="97"> HILLOCK CUTTING 97 </option>
+            <option value="98"> KHADIA TOP SITE 98 </option>
+            <option value="997"> PROJECT CHARGE (BLPH) 997 </option>
+            <option value="998"> PROJECT CHARGE (SGRL) 998 </option>
+            <option value="999"> MISCLLANIOUS WORK 999 </option>
+          </select>
+        </div>
+
+
+        <div class="col-md-2 offset-md-5">
+          <label class="form-label">FD Number</label>
+          <input type="text" class="form-control" id="fdr_no">
+        </div>
+        <div class="col-md-2">
+          <label class="form-lable">FD date</label>
+          <input class="form-control" type="text" id="fd_date" data-mask="date" name="date" placeholder="MM/DD/YYYY" />
+        </div>
+      </div>
+    </form>
+
+    <!-- inline radio buttons -->
+
+    <form class="mb-2">
+
+      <div class="form-row ml-2">
+
+        <div class="offset-3 col-md-2">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="FDentry" name="customRadio" class="custom-control-input"
+              onclick="javascript:Display_FDentry();">
+            <label class="custom-control-label font-weight-bolder" for="FDentry">FD Insert</label>
+          </div>
+        </div>
+
+
+        <div class="col-md-2">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="FDupdate" name="customRadio" class="custom-control-input"
+              onclick="javascript:Display_FDupdate();">
+            <label class="custom-control-label font-weight-bolder" for="FDupdate">FD Update</label>
+          </div>
+        </div>
+
+
+        <div class="col-md-2">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="FDsearch" name="customRadio" class="custom-control-input"
+              onclick="javascript:Display_FDsearch();">
+            <label class="custom-control-label font-weight-bolder" for="FDsearch">FD Search</label>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+
+    <!-- display  FD insert  -->
+
+    <div id="if_FDinsert" style="display:none">
+      <div class="card">
+
+        <div class="card-header text-white" style="background-color: #05668D ;">
+          <div class="row no-gutters">
+            <div class="col-md-4">FIXED DEPOSIT DETAILS ENTRY</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form id="FDform">
+
+            <div class="form-row no-gutters">
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="FD Serial No." list="SelectedMachinecode" id="fd_entry_srl">
+                  <label for="fd_entry_srl">FD serial no.</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Account code" list="AccCdList" id="acccode">
+                  <label for="acccode">Account code</label>
+                  <datalist id="AccCdList">
+                    <option value="1111 ">ISSUED SUBS. & PAIDUP CAPITAL </option>
+                    <option value="1117 ">EQUITY SHARE CAPITAL </option>
+                    <option value="1121 ">SHARE APPLICATION MONEY </option>
+                    <option value="1122 ">DEPOSIT AG SHARE APPLICATION </option>
+                    <option value="1211 ">CAPITAL RESERVE </option>
+                    <option value="1221 ">GENERAL RESERVE </option>
+                    <option value="1231 ">PROFIT & LOSS ACCOUNT </option>
+                    <option value="1251 ">CORPORATE SOCIAL RESPONSIBILITY FUND </option>
+                    <option value="1311 ">SECURED LOAN </option>
+                    <option value="1351 ">LOAN FROM DIRECTORS </option>
+                    <option value="1352 ">LOAN FROM SHAREHOLDERS </option>
+                    <option value="1353 ">LOAN FROM OTHERS </option>
+                    <option value="1411 ">CREDITORS SUB CONTRACTOR </option>
+                    <option value="1412 ">CREDITORS MATERIAL SUPPLIERS </option>
+                    <option value="1413 ">SUNDRY CREDITORS </option>
+                    <option value="1414 ">OUTSTANDING INTEREST PAYABLE </option>
+                    <option value="1415 ">SECURITY DEPOSIT FR. SUB CONT. </option>
+                    <option value="1416 ">RETENTION FM SUPPLIER / SUB CONT. </option>
+                    <option value="1417 ">LEAVE ENCASHMENT PAYABLE </option>
+                    <option value="1418 ">CREDITORS EMPLOYEE </option>
+                    <option value="1419 ">NO USE-ADV. TAKEN FROM OTHERS </option>
+                    <option value="1421 ">ADV. TAKEN FROM OTHERS </option>
+                    <option value="1422 ">MOBILISATION ADVANCE FR. CLIENT </option>
+                    <option value="1423 ">SECURED ADVANCE FROM CLIENT </option>
+                    <option value="1431 ">TDS - STAFF SALARY </option>
+                    <option value="1432 ">TDS - DIRECTOR SALARY </option>
+                    <option value="1433 ">TDS - SUB CONTRACTORS BILL </option>
+                    <option value="1434 ">TDS - INTEREST PAID ON LOAN </option>
+                    <option value="1435 ">TDS - SALE ON PROPERTY </option>
+                    <option value="1436 ">TDS - SERVICE CONTRACT </option>
+                    <option value="1437 ">TDS - TRANSPORT CHARGES </option>
+                    <option value="1438 ">TDS - CONSULTANCY PAYMENTS </option>
+                    <option value="1439 ">TDS - RENT </option>
+                    <option value="1441 ">INCOME TAX PAYABLE </option>
+                    <option value="1442 ">P.TAX DEPOSITABLE </option>
+                    <option value="1443 ">P.F. DEPOSITABLE </option>
+                    <option value="1444 ">E.S.I DEPOSITABLE </option>
+                    <option value="1445 ">EXCISE DUTY PAYABLE </option>
+                    <option value="1446 ">VAT PAYABLE </option>
+                    <option value="1447 ">VAT PAYABLE (SDPL) </option>
+                    <option value="1448 ">OLD-SERVICE TAX - LEGAL </option>
+                    <option value="1449 ">OLD-SERVICE TAX - TRANSPORT </option>
+                    <option value="1451 ">SERVICE TAX - OUTPUT SERVICE </option>
+                    <option value="1452 ">SERVICE TAX - RENT A CAB </option>
+                    <option value="1453 ">SERVICE TAX - SECURITY CHARGES </option>
+                    <option value="1454 ">SERVICE TAX - LEGAL </option>
+                    <option value="1455 ">SERVICE TAX - TRANSPORT </option>
+                    <option value="1456 ">SERVICE TAX - MANPOWER SUPPLY </option>
+                    <option value="1461 ">LIABILITIES TO SHAREHOLDERS </option>
+                    <option value="1471 ">CGST - WB OUTPUT </option>
+                    <option value="1472 ">SGST - WB OUTPUT </option>
+                    <option value="1473 ">IGST - WB OUTPUT </option>
+                    <option value="1474 ">GST - WB RCM LIABILITY </option>
+                    <option value="1475 ">CGST - JH OUTPUT </option>
+                    <option value="1476 ">SGST - JH OUTPUT </option>
+                    <option value="1477 ">IGST - JH OUTPUT </option>
+                    <option value="1478 ">GST - JH RCM LIABILITY </option>
+                    <option value="1481 ">CGST - CG OUTPUT </option>
+                    <option value="1482 ">SGST - CG OUTPUT </option>
+                    <option value="1483 ">IGST - CG OUTPUT </option>
+                    <option value="1484 ">GST - CG RCM LIABILITY </option>
+                    <option value="1485 ">CGST - UP OUTPUT </option>
+                    <option value="1486 ">SGST - UP OUTPUT </option>
+                    <option value="1487 ">IGST - UP OUTPUT </option>
+                    <option value="1488 ">GST - UP RCM LIABILITY </option>
+                    <option value="1491 ">CGST - MP OUTPUT </option>
+                    <option value="1492 ">SGST - MP OUTPUT </option>
+                    <option value="1493 ">IGST - MP OUTPUT </option>
+                    <option value="1494 ">GST - MP RCM LIABILITY </option>
+                    <option value="1495 ">CGST - AP OUTPUT </option>
+                    <option value="1496 ">SGST - AP OUTPUT </option>
+                    <option value="1497 ">IGST - AP OUTPUT </option>
+                    <option value="1498 ">GST - AP RCM LIABILITY </option>
+                    <option value="1511 ">PROVISION FOR INCOME TAX </option>
+                    <option value="1512 ">PROV.FOR LEAVE ENCASHMENT (LONGTERM) </option>
+                    <option value="1513 ">PROV.FOR LEAVE ENCASHMENT (SHORTTERM) </option>
+                    <option value="1514 ">PROPOSED DIVIDEND </option>
+                    <option value="1515 ">PROV. FOR ADDL.TAX ON DIVIDEND </option>
+                    <option value="1516 ">ARREAR DEFERRED TAX LIABILITY </option>
+                    <option value="1517 ">DEFERRED TAX LIAB. FOR THE YEAR </option>
+                    <option value="1518 ">PROVISION FOR FBT </option>
+                    <option value="1519 ">PROVISION FOR GRATUITY PREMIUM </option>
+                    <option value="1521 ">PROV. - DIMINUTION IN VALUE OF INVESTM </option>
+                    <option value="1601 ">INTER PROJECT TRANSACTION </option>
+                    <option value="1602 ">DCH-WS (S&E) </option>
+                    <option value="1603 ">DCH-CHP (W&S) </option>
+                    <option value="1604 ">DCH-CHP (S&E) </option>
+                    <option value="1605 ">DUDHICHUA CHP C. BOX </option>
+                    <option value="1606 ">DUDHICHUA 2ND SILO (W&S) </option>
+                    <option value="1607 ">DUDHICHUA 2ND SILO (SUPPLY) </option>
+                    <option value="1611 ">DCH/DWC </option>
+                    <option value="1612 ">DCH/DMS </option>
+                    <option value="1613 ">DCH/DRS </option>
+                    <option value="1614 ">DCH/SILO </option>
+                    <option value="1615 ">DCH/CHP MODIFICATION </option>
+                    <option value="1616 ">DCH/MINE MID ENTRY </option>
+                    <option value="1617 ">DCH/HAUL ROAD EXTN. </option>
+                    <option value="1618 ">DCH/LINER </option>
+                    <option value="1621 ">AML/STAGE-I/TRF </option>
+                    <option value="1622 ">AML/STAGE-II/TRF </option>
+                    <option value="1623 ">AML/HILL CUTTING </option>
+                    <option value="1624 ">AML/HAUL ROAD </option>
+                    <option value="1631 ">KHD/(TS) WORKSHOP EXTN. </option>
+                    <option value="1632 ">KHD/(TS) WORKSHOP </option>
+                    <option value="1633 ">KHD/HAUL ROAD </option>
+                    <option value="1634 ">KHD/(BS) WORKSHOP </option>
+                    <option value="1635 ">KHD/MID ENTRY </option>
+                    <option value="1636 ">KHD/CHP REHABILITATION </option>
+                    <option value="1637 ">KHADIA WORKSHOP & STORE (W&S) </option>
+                    <option value="1638 ">KHADIA WORKSHOP & STORE (SUPPLY) </option>
+                    <option value="1641 ">IWSS/JHR </option>
+                    <option value="1642 ">IWSS/GORBI </option>
+                    <option value="1643 ">IWSS/NTPC </option>
+                    <option value="1644 ">IWSS/KAKRI </option>
+                    <option value="1645 ">IWSS/KHADIA </option>
+                    <option value="1646 ">IWSS/SGRL </option>
+                    <option value="1647 ">IWSS/NTPC (ADLL.) </option>
+                    <option value="1648 ">ROAD WORK/RPL </option>
+                    <option value="1651 ">JYT/II-SILO (W&S) </option>
+                    <option value="1652 ">JYT/II-SILO (S&E) </option>
+                    <option value="1653 ">JYT/WORKSHOP </option>
+                    <option value="1656 ">GORBI INTERIM CHP OCP/NCL (W&S) </option>
+                    <option value="1657 ">GORBI INTERIM CHP OCP/NCL (SUPPLY) </option>
+                    <option value="1661 ">NGH/E&M WORKSHOP </option>
+                    <option value="1662 ">NGH-HEMM W/S. (W&S) </option>
+                    <option value="1663 ">NGH-HEMM W/S. (S&E) </option>
+                    <option value="1664 ">NGH CHP (PACKAGE-A) (W&S) </option>
+                    <option value="1665 ">NGH CHP (PACKAGE-A) (SUPPLY) </option>
+                    <option value="1666 ">NIGAHI CHP/PH-II (PKG-B-W&S) </option>
+                    <option value="1667 ">NIGAHI CHP/PH-II (PKG-B-SUPPY) </option>
+                    <option value="1671 ">O.B. REMOVAL / UMRED </option>
+                    <option value="1672 ">BOKARO THERMAL CHP (SERVICE) </option>
+                    <option value="1673 ">BOKARO THERMAL CHP (SUPPLY) </option>
+                    <option value="1674 ">BUILDING FOR J.N.VIDYALAYA/DGP </option>
+                    <option value="1675 ">PAIKPARA BLDG / KOLKATA </option>
+                    <option value="1676 ">MADHUBAND WASHERY (W&S) </option>
+                    <option value="1677 ">MADHUBAND WASHERY (SUPPLY) </option>
+                    <option value="1678 ">MAHESHPUR CHP (W&S) </option>
+                    <option value="1679 ">MAHESHPUR CHP (SUPPLY) </option>
+                    <option value="1681 ">DIPKA WORKSHOP (W&S) </option>
+                    <option value="1682 ">DIPKA WORKSHOP (SUPPLY) </option>
+                    <option value="1683 ">GEVRA SILO (W&S) </option>
+                    <option value="1684 ">GEVRA SILO (SUPPLY) </option>
+                    <option value="1685 ">BLPH/MCC ROOM </option>
+                    <option value="1686 ">DIPKA SILO (W&S) </option>
+                    <option value="1687 ">DIPKA SILO (SUPPLY) </option>
+                    <option value="1688 ">BSP OHP (W&S) </option>
+                    <option value="1689 ">BSP CHP (W&S) </option>
+                    <option value="1691 ">GEVRA WORKSHOP (W&S) </option>
+                    <option value="1692 ">GEVRA WORKSHOP (SUPPLY) </option>
+                    <option value="1693 ">DIPKA MAIN CHP (W&S) </option>
+                    <option value="1694 ">DIPKA MAIN CHP (SUPPLY) </option>
+                    <option value="1695 ">KUSMUNDA CHP PH-1 (W&S) </option>
+                    <option value="1696 ">KUSMUNDA CHP PH-1 (SUPPLY) </option>
+                    <option value="1697 ">RIHAND WORK </option>
+                    <option value="1698 ">SGRL TEMPLE </option>
+                    <option value="1699 ">MISC. WORK </option>
+                    <option value="1711 ">RANCHI OFFICE </option>
+                    <option value="1721 ">KOLKATA OFFICE </option>
+                    <option value="1722 ">KOLKATA ESTABLISHMENT </option>
+                    <option value="1731 ">DELHI OFFICE </option>
+                    <option value="1741 ">JHARSUGUDA / COX COLONY </option>
+                    <option value="1751 ">BILASPUR ROLLING MILL </option>
+                    <option value="1781 ">KHUNTI </option>
+                    <option value="1797 ">PROJECT CHARGE / BLPH </option>
+                    <option value="1798 ">PROJECT CHARGE / SGRL </option>
+                    <option value="2111 ">LAND </option>
+                    <option value="2112 ">BUILDING (FLAT) </option>
+                    <option value="2113 ">LAND (LEASE HOLD) </option>
+                    <option value="2114 ">FACTORY OFFICE BUILDING </option>
+                    <option value="2115 ">FACTORY SHED </option>
+                    <option value="2116 ">CAPITAL WORK IN PROGRESS </option>
+                    <option value="2131 ">CYCLES </option>
+                    <option value="2132 ">MOTOR CYCLES </option>
+                    <option value="2133 ">CARS </option>
+                    <option value="2134 ">JEEPS </option>
+                    <option value="2151 ">L T V </option>
+                    <option value="2152 ">TRUCKS </option>
+                    <option value="2153 ">DUMPERS </option>
+                    <option value="2154 ">WATER TANKERS </option>
+                    <option value="2155 ">TRAILORS </option>
+                    <option value="2171 ">CONCRETE MIXER DIESEL </option>
+                    <option value="2172 ">CONCRETE MIXER ELECTRIC </option>
+                    <option value="2173 ">CONCRETE WEIGH BATCHER </option>
+                    <option value="2174 ">VIBRATORS </option>
+                    <option value="2175 ">BATCHING PLANT </option>
+                    <option value="2176 ">CUBE TESTING MACHINE CUBES </option>
+                    <option value="2177 ">CONCRETE PUMP </option>
+                    <option value="2178 ">TRANSIT MIXTURE M/C </option>
+                    <option value="2191 ">COMPRESSOR </option>
+                    <option value="2192 ">DOZER </option>
+                    <option value="2193 ">POCLAIN </option>
+                    <option value="2194 ">WAGON DRILLING EQUIPMENT </option>
+                    <option value="2195 ">ROCK DRILL </option>
+                    <option value="2196 ">JACK HAMMER </option>
+                    <option value="2197 ">ROCK BREAKER </option>
+                    <option value="2198 ">EXCAVATOR / LOADER </option>
+                    <option value="2199 ">GRADER </option>
+                    <option value="2201 ">WATER TREATMENT PLANT </option>
+                    <option value="2211 ">ROAD ROLLER </option>
+                    <option value="2212 ">VIBRATORY COMPACTOR </option>
+                    <option value="2213 ">STONE CRUSHER </option>
+                    <option value="2214 ">BITUMEN MIXER </option>
+                    <option value="2215 ">EARTH RAMMER </option>
+                    <option value="2221 ">ROLLING MILL MECH EQUIPMENT </option>
+                    <option value="2222 ">FURNACE </option>
+                    <option value="2223 ">LAB. EQUIPMENT </option>
+                    <option value="2224 ">VENTILATION SYSTEM </option>
+                    <option value="2225 ">TMT UNIT / COOLING BED </option>
+                    <option value="2226 ">AUTOMATION SYSTEM </option>
+                    <option value="2227 ">COOLING SYSTEM </option>
+                    <option value="2228 ">ROLLS </option>
+                    <option value="2229 ">ROLLER GUIDE & ROD TWISTER </option>
+                    <option value="2231 ">PUG CUTTING MACHINE </option>
+                    <option value="2232 ">WELDING MACHINE (ELECTRIC) </option>
+                    <option value="2233 ">WELDING GENERATOR SET </option>
+                    <option value="2234 ">GAS CUTTING TORCH PIPES REGULA </option>
+                    <option value="2236 ">LATHE MACHINE </option>
+                    <option value="2237 ">DRILLING MACHINE </option>
+                    <option value="2238 ">RIB CUTTING MACHINE </option>
+                    <option value="2239 ">AIR COMPRESSOR </option>
+                    <option value="2251 ">CRANE </option>
+                    <option value="2252 ">HOIST </option>
+                    <option value="2253 ">PULLING MACHINE </option>
+                    <option value="2254 ">WINCHES </option>
+                    <option value="2255 ">DERRIC </option>
+                    <option value="2256 ">TOUGH RIDER </option>
+                    <option value="2257 ">LIFTING MAGNET </option>
+                    <option value="2258 ">WEIGH BRIDGE </option>
+                    <option value="2259 ">FORK LIFT </option>
+                    <option value="2261 ">BENDING MACHINE </option>
+                    <option value="2262 ">LINING MACHINE </option>
+                    <option value="2263 ">GROUTING / GUNITING MACHINE </option>
+                    <option value="2264 ">GRINDING MACHINE </option>
+                    <option value="2265 ">HYDRALUIC PIPE TEST BENCH </option>
+                    <option value="2271 ">ELECTRICAL EQUIPMENT </option>
+                    <option value="2272 ">GENERATOR </option>
+                    <option value="2273 ">PUMPS </option>
+                    <option value="2274 ">MOTOR (ROLLER TABLE) </option>
+                    <option value="2275 ">MOTOR (DC) </option>
+                    <option value="2276 ">MOTOR </option>
+                    <option value="2277 ">TRANSFORMER </option>
+                    <option value="2278 ">CABLE </option>
+                    <option value="2279 ">POWER DISTRIBUTION BOARD (RT POWER PAN </option>
+                    <option value="2280 ">LIGHTING SYSTEM </option>
+                    <option value="2281 ">THEODLITE </option>
+                    <option value="2282 ">LEVELLING INSTRUMENT </option>
+                    <option value="2283 ">DISTOMAT </option>
+                    <option value="2284 ">LEVELLING STAFF </option>
+                    <option value="2291 ">SHUTTERING PLATES </option>
+                    <option value="2292 ">SCAFFOLDING & FITTINGS </option>
+                    <option value="2293 ">MEASUREMENT BOX </option>
+                    <option value="2294 ">FLOOR POLISHING MACHINE </option>
+                    <option value="2295 ">SEIVE SHAKING M/C </option>
+                    <option value="2311 ">TYPE WRITER </option>
+                    <option value="2312 ">FAX MACHINE </option>
+                    <option value="2313 ">COMPUTERS </option>
+                    <option value="2314 ">PRINTERS / PLOTERS </option>
+                    <option value="2315 ">STABILIZER </option>
+                    <option value="2316 ">UPS SYSTEMS </option>
+                    <option value="2317 ">CALCULATORS </option>
+                    <option value="2318 ">INTERCOM APPARATUS </option>
+                    <option value="2319 ">OFFICE MACHINERY </option>
+                    <option value="2321 ">SOFTWARES </option>
+                    <option value="2331 ">AIR CONDITIONER </option>
+                    <option value="2332 ">REFREGERATOR </option>
+                    <option value="2333 ">COOLER </option>
+                    <option value="2334 ">FURNITURES </option>
+                    <option value="2335 ">DISPOSAL OF ASSETS </option>
+                    <option value="2411 ">STOCK OF CONSTRUCTION MATERIAL </option>
+                    <option value="2412 ">STOCK OF RAW MATERIALS </option>
+                    <option value="2413 ">STOCK OF FINISHED GOODS </option>
+                    <option value="2414 ">CLOSING STOCK OF SCRAP </option>
+                    <option value="2421 ">STOCK OF TOOLS </option>
+                    <option value="2425 ">STOCK OF FUEL LUBR. & SPARES </option>
+                    <option value="2431 ">WORK-IN-PROGRESS </option>
+                    <option value="2441 ">SUNDRY DEBTORS </option>
+                    <option value="2442 ">OTHER RECEIVABLES </option>
+                    <option value="2451 ">COMPUTER SOFTWARE </option>
+                    <option value="2511 ">CASH IN HAND </option>
+                    <option value="2512 ">DRAFT IN HAND </option>
+                    <option value="2513 ">CHEQUE IN HAND </option>
+                    <option value="2514 ">CASH WITH DELHI </option>
+                    <option value="2610 ">UCO BANK HZ ROAD </option>
+                    <option value="2611 ">UCO BANK S.B.ROAD KOLKATA </option>
+                    <option value="2612 ">UBI (CR A/C) / KOL </option>
+                    <option value="2613 ">UCO BANK / MID CORPORATE BR. / KOL </option>
+                    <option value="2614 ">ICICI BANK / SAKET-NEW DELHI </option>
+                    <option value="2615 ">SBI-OVERSEAS/IFB-CR.A/C </option>
+                    <option value="2616 ">UBI/CAMAC ST./KOL </option>
+                    <option value="2617 ">SBI OVERSEAS BANK / KOL </option>
+                    <option value="2618 ">SBI / LAMARTINIERE / KOLKATA </option>
+                    <option value="2619 ">INDIAN BANK KOLKATA </option>
+                    <option value="2620 ">INDIAN BANK (C.C A/C.) </option>
+                    <option value="2621 ">UBI/RANCHI </option>
+                    <option value="2622 ">SBI/BILBERA </option>
+                    <option value="2623 ">BOI RAJARAPPA </option>
+                    <option value="2624 ">STATE BANK OF INDIA / RANCHI </option>
+                    <option value="2626 ">SBI/BTPS </option>
+                    <option value="2631 ">UBI MORWA A/C.-1 </option>
+                    <option value="2632 ">UNION BANK OF INDIA / BHILAI </option>
+                    <option value="2633 ">UBI SANJOYNAGAR </option>
+                    <option value="2634 ">UBI DUDHICHUA </option>
+                    <option value="2635 ">SBI AMLOHRI </option>
+                    <option value="2636 ">SBI JAYANT </option>
+                    <option value="2642 ">UCO BANK BRAJRAJNAGAR </option>
+                    <option value="2643 ">UBI BANDHBAHAL </option>
+                    <option value="2644 ">SBI BANDHBAHAL </option>
+                    <option value="2651 ">STANDARD CHARTERED / NEW DELHI </option>
+                    <option value="2652 ">UBI/NEW DELHI </option>
+                    <option value="2661 ">UBI UMRED / NAGPUR </option>
+                    <option value="2662 ">SBI MUCHIPARA / DGP </option>
+                    <option value="2671 ">SBI GEVRA </option>
+                    <option value="2672 ">SBI/BHILAI </option>
+                    <option value="2673 ">UBI GEVRA </option>
+                    <option value="2674 ">UBI/BHILAI </option>
+                    <option value="2681 ">UBI - BILASPUR </option>
+                    <option value="2682 ">UBI / BILASPUR (SDPL) </option>
+                    <option value="2683 ">SBI / BILASPUR (SDPL) </option>
+                    <option value="2684 ">UBI / IFB / CAMAC ST KOL / KOL (SDPL) </option>
+                    <option value="2685 ">SBI OVERSEAS BR. KOL (CC) (SDPL) </option>
+                    <option value="2686 ">SBI IFB KOL(CA) </option>
+                    <option value="2711 ">NSC </option>
+                    <option value="2712 ">ACCRUED INTEREST ON NSC (REC.) </option>
+                    <option value="2713 ">FIXED DEPOSIT </option>
+                    <option value="2714 ">ACCRUED INTEREST ON F.D (REC.) </option>
+                    <option value="2715 ">CUST-MARGIN A/C WITH INDIAN BANK </option>
+                    <option value="2761 ">DEPOSIT ON SHARE </option>
+                    <option value="2811 ">ADV. AG. CIVIL MATERIALS </option>
+                    <option value="2812 ">ADV. AG. STEEL MATERIALS </option>
+                    <option value="2813 ">ADV. AG. MECH. MATERIALS </option>
+                    <option value="2814 ">ADV. AG. ELEC. MATERIALS </option>
+                    <option value="2819 ">ADV TAKEN FROM OTHERS </option>
+                    <option value="2821 ">ADV. AG. SUB-CONTRACTORS </option>
+                    <option value="2828 ">ADV. AG. ASSETS </option>
+                    <option value="2829 ">ADV. MISC. </option>
+                    <option value="2831 ">ADV. TO STAFF </option>
+                    <option value="2832 ">ADV. TO DIRECTORS </option>
+                    <option value="2841 ">IMPREST CASH </option>
+                    <option value="2842 ">FINANCERS </option>
+                    <option value="2851 ">LOAN TO OTHERS </option>
+                    <option value="2852 ">LOAN TO STAFF </option>
+                    <option value="2861 ">DEFERRED INTEREST ON LOAN </option>
+                    <option value="2865 ">PRELIMINARY EXPENSES </option>
+                    <option value="2866 ">EXPENSES FOR AMALGAMATION </option>
+                    <option value="2867 ">PURCHASE CONSIDERATION </option>
+                    <option value="2868 ">REALISATION ACCOUNT </option>
+                    <option value="2869 ">SHARE HOLDERS ACCOUNT </option>
+                    <option value="2901 ">SERVICE TAX (INPUT) </option>
+                    <option value="2902 ">CENVAT CR RECVL (SERVICE TAX) </option>
+                    <option value="2904 ">CENVAT CR RECVL (SR TAX) / SDPL </option>
+                    <option value="2905 ">KRISHI KALYAN CESS (SR.TAX) </option>
+                    <option value="2908 ">SERVICE TAX REFUNDABLE </option>
+                    <option value="2911 ">SERVICE TAX REFUNDABLE </option>
+                    <option value="2912 ">CENVAT CR RECVL (SERVICE TAX) </option>
+                    <option value="2913 ">CENVAT CR RECVL (EXCISE) </option>
+                    <option value="2914 ">SERVICE TAX INPUT </option>
+                    <option value="2915 ">CENVAT CR. RECVL (SER.TAX) / SDPL </option>
+                    <option value="2916 ">INPUT TAX CREDIT (VAT) </option>
+                    <option value="2917 ">INPUT TAX CREDIT (CST) </option>
+                    <option value="2918 ">VAT/CST REFUNDABLE </option>
+                    <option value="2921 ">ADVANCE INCOME TAX </option>
+                    <option value="2922 ">ITDS ON CONTRACT RECEIPT </option>
+                    <option value="2923 ">ITDS ON OTHER RECEIPT </option>
+                    <option value="2924 ">INCOME TAX REFUNDABLE </option>
+                    <option value="2925 ">ADV. FRINGE BENEFIT TAX </option>
+                    <option value="2926 ">SELF ASST. I.TAX </option>
+                    <option value="2927 ">MINIMUM ALTERNATE TAX CR. </option>
+                    <option value="2928 ">DEPOSIT TO INCOME TAX </option>
+                    <option value="2935 ">STDS ON CONTRACT RECEIPT </option>
+                    <option value="2936 ">TDS-CGST </option>
+                    <option value="2937 ">TDS-SGST </option>
+                    <option value="2938 ">TDS-IGST </option>
+                    <option value="2941 ">P.G. TEST DEDUCTION </option>
+                    <option value="2942 ">TRIAL OPERATION DEDUCTION </option>
+                    <option value="2943 ">RETENTION BY CLIENT (DR.) </option>
+                    <option value="2944 ">RETENTION BY CLIENT (CR.) </option>
+                    <option value="2951 ">EARNEST MONEY </option>
+                    <option value="2952 ">SECURITY DEPOSIT BY CLIENT </option>
+                    <option value="2953 ">WITHHELD BY CLIENT OTHERS </option>
+                    <option value="2954 ">WITHHELD BY CLIENT ST.TAX </option>
+                    <option value="2955 ">WITHHELD BY CLIENT FROM BASIC </option>
+                    <option value="2956 ">WITHHELD BY CLIENT BOCW </option>
+                    <option value="2957 ">WITHHELD BY CLIENT VAT </option>
+                    <option value="2958 ">WITHHELD BY CLIENT ED </option>
+                    <option value="2959 ">WITHHELD BY CLIENT - GST </option>
+                    <option value="2961 ">TELEPHONE DEPOSIT </option>
+                    <option value="2962 ">PREPAID INSURANCE </option>
+                    <option value="2963 ">P.F. RECOVERABLE </option>
+                    <option value="2964 ">MISC. SECURITY </option>
+                    <option value="2965 ">INTERIM DIVIDEND PAID </option>
+                    <option value="2966 ">ADDL.TAX ON INTERIM DIV.PAID </option>
+                    <option value="2971 ">CGST - WB INPUT </option>
+                    <option value="2972 ">SGST - WB INPUT </option>
+                    <option value="2973 ">IGST - WB INPUT </option>
+                    <option value="2974 ">GST-ELECTRONIC CASH LEDGER - WB </option>
+                    <option value="2975 ">CGST - JH INPUT </option>
+                    <option value="2976 ">SGST - JH INPUT </option>
+                    <option value="2977 ">IGST - JH INPUT </option>
+                    <option value="2978 ">GST-ELECTRONIC CASH LEDGER - JH </option>
+                    <option value="2981 ">CGST - CG INPUT </option>
+                    <option value="2982 ">SGST - CG INPUT </option>
+                    <option value="2983 ">IGST - CG INPUT </option>
+                    <option value="2984 ">GST-ELECTRONIC CASH LEDGER - CG </option>
+                    <option value="2985 ">CGST - UP INPUT </option>
+                    <option value="2986 ">SGST - UP INPUT </option>
+                    <option value="2987 ">IGST - UP INPUT </option>
+                    <option value="2988 ">GST-ELECTRONIC CASH LEDGER - UP </option>
+                    <option value="2991 ">CGST - MP INPUT </option>
+                    <option value="2992 ">SGST - MP INPUT </option>
+                    <option value="2993 ">IGST - MP INPUT </option>
+                    <option value="2994 ">GST-ELECTRONIC CASH LEDGER - MP </option>
+                    <option value="2995 ">CGST - AP INPUT </option>
+                    <option value="2996 ">SGST - AP INPUT </option>
+                    <option value="2997 ">IGST - AP INPUT </option>
+                    <option value="2998 ">GST-ELECTRONIC CASH LEDGER - AP </option>
+                    <option value="2999 ">OLD-SHARE HOLDERS ACCOUNT </option>
+                    <option value="3011 ">MISC. CONSTRUCTION WORK </option>
+                    <option value="3012 ">CIVIL WORKS </option>
+                    <option value="3013 ">STRUCTURAL WORKS </option>
+                    <option value="3014 ">MECHANICAL WORKS </option>
+                    <option value="3015 ">ELECTRICAL WORKS </option>
+                    <option value="3016 ">OPERATION & MAINT. LABOUR OF MILL </option>
+                    <option value="3018 ">CAMP CONSTRUCTION (LABOUR) </option>
+                    <option value="3019 ">MAT. DED. FROM SUB-CONTRACTOR </option>
+                    <option value="3024 ">LABOUR WELFARE </option>
+                    <option value="3032 ">SERVICE CHARGES </option>
+                    <option value="3111 ">CIVIL MATERIAL PURCHASES </option>
+                    <option value="3112 ">STEEL MATERIAL PURCHASES </option>
+                    <option value="3113 ">MECH. MATERIAL PURCHASES </option>
+                    <option value="3114 ">ELEC. MATERIAL PURCHASES </option>
+                    <option value="3115 ">BILLET PURCHASE </option>
+                    <option value="3116 ">FURNACE OIL PURCHASE </option>
+                    <option value="3117 ">MATERIAL SUPPLY BY CLIENT </option>
+                    <option value="3118 ">CAMP CONSTRUCTION (MATERIAL) </option>
+                    <option value="3119 ">OLD-TECH CONSULTANCY CHG </option>
+                    <option value="3121 ">RETURN-INWARD </option>
+                    <option value="3122 ">ROYALTY ON MATERIALS </option>
+                    <option value="3124 ">OLD-LABOUR WELFARE </option>
+                    <option value="3131 ">MECH.MAT PURCHASE-SUPPLY </option>
+                    <option value="3132 ">ELEC.MAT PURCHASE-SUPPLY </option>
+                    <option value="3141 ">OLD-PROJECT MAINTENANCE </option>
+                    <option value="3142 ">OLD-PUJA EXPENSES </option>
+                    <option value="3161 ">TRANSPORT CHARGES </option>
+                    <option value="3162 ">MATERIAL TRANSPORT (OUTWARD) </option>
+                    <option value="3165 ">TRANSPORT CHGS.-OTHERS </option>
+                    <option value="3166 ">TRANSPORT CHARGES-LOCAL </option>
+                    <option value="3167 ">TRANSPORT CHGS-REIMBURSEMENT </option>
+                    <option value="3201 ">TECH. CONSULTANCY CHGS. </option>
+                    <option value="3202 ">RETAINERSHIP </option>
+                    <option value="3211 ">NO USE-CIVIL MATERIAL PURCHASES </option>
+                    <option value="3212 ">NO USE-STEEL MATERIAL PURCHASES </option>
+                    <option value="3213 ">NO USE-MECH.MATERIAL PURCHASES </option>
+                    <option value="3214 ">NO USE-ELEC. MATERIAL PURCHASES </option>
+                    <option value="3215 ">OLD-MECH.MAT PURCHASE-SUPPLY </option>
+                    <option value="3216 ">NO USE-OLD-ELEC.MAT PURCHASE-SUPPLY </option>
+                    <option value="3217 ">OLD-MATERIAL SUPPLY BY CLIENT </option>
+                    <option value="3218 ">NO USE-CAMP CONSTRUCTION (MATERIAL) </option>
+                    <option value="3219 ">OLD-MAT. DED. FROM SUB-CONTRACTOR </option>
+                    <option value="3221 ">POL / SPARE PARTS (P & M) </option>
+                    <option value="3222 ">ELECTRIC CHARGES (WORKS) </option>
+                    <option value="3225 ">PURCHASES-FUEL </option>
+                    <option value="3231 ">SECURITY CHARGES </option>
+                    <option value="3232 ">HIRE CHARGES (P & M) </option>
+                    <option value="3234 ">WATER CHARGES </option>
+                    <option value="3241 ">INSURANCE POLICY (W.C) </option>
+                    <option value="3242 ">INSURANCE POLICY (C.A.R) </option>
+                    <option value="3245 ">INSURANCE POLICY (P & M) </option>
+                    <option value="3246 ">INSURANCE POLICY (FIRE) </option>
+                    <option value="3248 ">INSURANCE POLICY (OTHERS) </option>
+                    <option value="3251 ">PROJECT MAINTENANCE </option>
+                    <option value="3252 ">PUJA EXPENSES </option>
+                    <option value="3261 ">BANK GUARANTEE CHARGES (WORKS) </option>
+                    <option value="3262 ">LOAN PROCESSING FEE </option>
+                    <option value="3263 ">INTEREST PAID ON LOAN </option>
+                    <option value="3264 ">OTHER BANK CHARGES CREDIT FACILITIES </option>
+                    <option value="3265 ">OLD-TRANSPORT CHARGES-OTHERS </option>
+                    <option value="3266 ">OLD-TRANSPORT CHARGES-LOCAL </option>
+                    <option value="3267 ">OLD-TRANSPORT CHGS-REIMBURSEMENT </option>
+                    <option value="3311 ">SALARIES (DIRECTOR) </option>
+                    <option value="3312 ">COMMISSION (DIRECTOR) </option>
+                    <option value="3321 ">SALARIES (STAFF) </option>
+                    <option value="3323 ">BONUS </option>
+                    <option value="3324 ">LEAVE ENCASHMENT </option>
+                    <option value="3325 ">STAFF WELFARE </option>
+                    <option value="3326 ">MEDICAL REIMBURSEMENT </option>
+                    <option value="3327 ">CHILDREN EDUCATIONAL GRANT </option>
+                    <option value="3328 ">P.F. CONTRIBUTION COMPANY </option>
+                    <option value="3329 ">PENSION FUND COMPANY </option>
+                    <option value="3331 ">ADMN. CHARGES ON BASIC & DA </option>
+                    <option value="3332 ">EDLI. CHARGES </option>
+                    <option value="3333 ">EDLI. ADMN. CHARGES ON P.F </option>
+                    <option value="3334 ">GRATUITY PREMIUM </option>
+                    <option value="3336 ">E.S.I. </option>
+                    <option value="3338 ">INSURANCE POLICY (STAFF) </option>
+                    <option value="3339 ">ESI CONTRIBUTION </option>
+                    <option value="3341 ">OTHER ALLOWANCES </option>
+                    <option value="3342 ">STAFF REFRESHMENT </option>
+                    <option value="3343 ">QUARTER RENT </option>
+                    <option value="3345 ">STAFF RELOCATION EXPENSES </option>
+                    <option value="3351 ">OLD-RETAINERSHIP </option>
+                    <option value="3411 ">PRINTING </option>
+                    <option value="3421 ">XEROX </option>
+                    <option value="3431 ">STATIONERY OFFICE </option>
+                    <option value="3432 ">STATIONERY DRAWING </option>
+                    <option value="3433 ">STATIONERY COMPUTER </option>
+                    <option value="3441 ">OLD-OFFICE REPAIRS & MAINTENANCE </option>
+                    <option value="3442 ">POSTAGE & TELEGRAPH </option>
+                    <option value="3443 ">COURIER CHARGES </option>
+                    <option value="3445 ">TELEPHONE CHARGES </option>
+                    <option value="3446 ">FAX CHARGES </option>
+                    <option value="3447 ">OLD-COURIER CHARGES </option>
+                    <option value="3451 ">BANK CHARGES </option>
+                    <option value="3452 ">BANK GUARANTEE CHARGES (MARKETING) </option>
+                    <option value="3453 ">OLD-INTEREST PAID ON LOAN </option>
+                    <option value="3461 ">ADVERTISEMENT & PUBLICITY </option>
+                    <option value="3462 ">BOOKS & PERIODICALS </option>
+                    <option value="3465 ">PROFESSIONAL CHARGES (LEGAL) </option>
+                    <option value="3466 ">AUDITORS RENUMERATION </option>
+                    <option value="3467 ">STATUTORY MATTERS </option>
+                    <option value="3468 ">PROFESSION TAX </option>
+                    <option value="3471 ">PROMOTIONAL EXPENSES </option>
+                    <option value="3472 ">DONATION </option>
+                    <option value="3473 ">SUBSCRIPTION </option>
+                    <option value="3474 ">TRAINING & DEVELOPMENT EXPENSES </option>
+                    <option value="3475 ">TENDER EXPENSES </option>
+                    <option value="3476 ">COMMISSION ON SALE </option>
+                    <option value="3481 ">MISCELLANEOUS EXPENSES </option>
+                    <option value="3482 ">BUSINESS INCIDENTAL EXP. </option>
+                    <option value="3491 ">OLD-TENDER EXPENSES </option>
+                    <option value="3492 ">OLD-COMMISSION ON SALE </option>
+                    <option value="3511 ">TRAVEL EXPENSES (FARE) </option>
+                    <option value="3512 ">TRAVEL EXPENSES (LODG) </option>
+                    <option value="3513 ">TRAVEL EXPENSES (FOOD) </option>
+                    <option value="3514 ">TRAVEL EXPENSES (OTHER) </option>
+                    <option value="3521 ">TRAVEL EXPENSES (STAFF) </option>
+                    <option value="3531 ">TRAVEL EXPENSES (DIRECTOR) </option>
+                    <option value="3541 ">TRAVEL EXPENSES (FOREIGN) </option>
+                    <option value="3551 ">TRAVEL EXPENSES (LOCAL) </option>
+                    <option value="3561 ">POL / PARTS CAR M.C. (OWN VEHICLE) </option>
+                    <option value="3562 ">HIRE CHARGES (CAR JEEP ETC.) </option>
+                    <option value="3571 ">FOOD FOR GUESTS </option>
+                    <option value="3572 ">MESS CHARGES </option>
+                    <option value="3611 ">OFFICE RENT </option>
+                    <option value="3621 ">LEASE RENT CHARGES </option>
+                    <option value="3631 ">OFFICE REPAIRS & MAINTENANCE </option>
+                    <option value="3651 ">ELECTRIC CHARGES (OFFICE) </option>
+                    <option value="3661 ">NO USE-MUNICIPAL TAX </option>
+                    <option value="3681 ">MAINTENANCE EXP.- ESTABLISHMENT </option>
+                    <option value="3691 ">OLD-FOOD FOR GUESTS </option>
+                    <option value="3692 ">OLD-MESS CHARGES </option>
+                    <option value="3711 ">TOOLS REPAIR / MAINT. PAYMENT </option>
+                    <option value="3712 ">P & M. REPAIR / MAINT. PAYMENT </option>
+                    <option value="3721 ">OLD-P & M. REPAIR / MAINT. PAYMENT </option>
+                    <option value="3723 ">OLD-POL/PARTS CAR M.C. (OWN VEHICLE) </option>
+                    <option value="3724 ">NO USE-VEHICLE / P & M TAX </option>
+                    <option value="3741 ">NO USE-LEASE RENT CHARGES </option>
+                    <option value="3751 ">DEPRECIATION ON ASSETS </option>
+                    <option value="3752 ">DEPRECIATION ON TOOLS </option>
+                    <option value="3771 ">OLD-INSURANCE POLICY (P & M) </option>
+                    <option value="3772 ">OLD-INSURANCE POLICY (FIRE) </option>
+                    <option value="3811 ">INCOME TAX </option>
+                    <option value="3812 ">FRINGE BENEFIT TAX </option>
+                    <option value="3813 ">CASH TRANSACTION TAX </option>
+                    <option value="3814 ">WEALTH TAX </option>
+                    <option value="3815 ">SHORT I.T. PROV. PROVIDED </option>
+                    <option value="3816 ">DEFERRED TAX (ASSETS/LIABILITIES) </option>
+                    <option value="3821 ">SALES TAX </option>
+                    <option value="3822 ">SALE TAX REFUND </option>
+                    <option value="3828 ">CENTRAL SALES TAX </option>
+                    <option value="3829 ">ENTRY TAX </option>
+                    <option value="3830 ">SERVICE TAX PAID </option>
+                    <option value="3831 ">SERVICE TAX (INPUT) </option>
+                    <option value="3832 ">SERVICE TAX ON GTA </option>
+                    <option value="3833 ">SWACHH BHARAT CESS </option>
+                    <option value="3835 ">EXCISE DUTY </option>
+                    <option value="3841 ">MUNICIPAL TAX </option>
+                    <option value="3842 ">VEHICLE / P & M TAX </option>
+                    <option value="3843 ">OLD-HIRE CHARGES (CAR JEEP ETC.) </option>
+                    <option value="3844 ">NO USE-CGST - CHARGE </option>
+                    <option value="3845 ">OLD-WATER CHARGES </option>
+                    <option value="3846 ">NO USE-SGST - CHARGE </option>
+                    <option value="3847 ">NO USE-IGST - CHARGE </option>
+                    <option value="3848 ">OLD-OTHER BANK CHARGES CREDIT FACILITI </option>
+                    <option value="3851 ">CGST - UNDER RCM </option>
+                    <option value="3852 ">SGST - UNDER RCM </option>
+                    <option value="3853 ">IGST - UNDER RCM </option>
+                    <option value="3854 ">GST - INTEREST / PENALTY </option>
+                    <option value="3861 ">OTHER TAXES & DUTIES </option>
+                    <option value="3871 ">CGST-INPUT-INELIGIBLE </option>
+                    <option value="3872 ">SGST-INPUT-INELIGIBLE </option>
+                    <option value="3873 ">IGST-INPUT-INELIGIBLE </option>
+                    <option value="3881 ">CORPORATE SOCIAL RESPONSIBILITY </option>
+                    <option value="3891 ">OLD-OTHER TAXES & DUTIES </option>
+                    <option value="3911 ">OPENING WORK-IN-PROGRESS </option>
+                    <option value="3921 ">OPENING STOCK OF MATERIALS </option>
+                    <option value="3922 ">OPENING STOCK OF RAW MATERIALS </option>
+                    <option value="3923 ">OPENING STOCK OF FINISHED GOODS </option>
+                    <option value="3924 ">OPENING STOCK OF SCRAP </option>
+                    <option value="3931 ">OLD-SHORT I.T. PROV. PROVIDED </option>
+                    <option value="3951 ">CLOSING WORK-IN-PROGRESS </option>
+                    <option value="3961 ">CLOSING STOCK OF MATERIALS </option>
+                    <option value="3962 ">CLOSING STOCK OF RAW MATERIALS </option>
+                    <option value="3963 ">STOCK OF FINISHED GOODS </option>
+                    <option value="3964 ">STOCK OF SCRAP </option>
+                    <option value="4101 ">CONT. RECPT. (WORKS & SERVICES) </option>
+                    <option value="4102 ">NO USE-CONT. RECPT. DCH-WS (S & E) </option>
+                    <option value="4103 ">NO USE-CONT. RECPT. DCH-CHP (W & S) </option>
+                    <option value="4104 ">NO USE-CONT. RECPT. DCH-CHP (S & E) </option>
+                    <option value="4105 ">NO USE-CONT. RECPT. DCH/CHP C. BOX </option>
+                    <option value="4106 ">NO USE-CONT. RECPT. DCH 2ND SILO(W&S) </option>
+                    <option value="4107 ">NO USE-CONT. RECPT. DCH 2ND SILO(SUPPL </option>
+                    <option value="4111 ">CONT. RECPT. (SUPPLY) </option>
+                    <option value="4112 ">NO USE-CONT. RECPT. DCH/DMS </option>
+                    <option value="4113 ">NO USE-CONT. RECPT. DCH/DRS </option>
+                    <option value="4114 ">NO USE-CONT. RECPT. DCH/SILO </option>
+                    <option value="4115 ">NO USE-CONT. RECPT. DCH/CHP MODI. </option>
+                    <option value="4116 ">NO USE-CONT. RECPT. DCH/MINE MID </option>
+                    <option value="4117 ">NO USE-CONT. RECPT. DCH/MID EXTN </option>
+                    <option value="4118 ">NO USE-CONT. RECPT. DCH/LINER </option>
+                    <option value="4121 ">CONT. RECPT. EXCISE DUTY </option>
+                    <option value="4122 ">NO USE-CONT. RECPT. AML/STAGE-II/TRF </option>
+                    <option value="4123 ">NO USE-CONT. RECPT. AML/HILL CUTTING </option>
+                    <option value="4124 ">NO USE-CONT. RECPT. AML/HAUL ROAD </option>
+                    <option value="4131 ">CONT. RECPT. SALES TAX </option>
+                    <option value="4132 ">NO USE-CONT. RECPT. KHD/WORKSHOP (TS) </option>
+                    <option value="4133 ">NO USE-CONT. RECPT. KHD/HAUL ROAD </option>
+                    <option value="4134 ">NO USE-CONT. RECPT. KHD/WORKSHOP (BS) </option>
+                    <option value="4135 ">NO USE-CONT. RECPT. KHD/MID ENTRY </option>
+                    <option value="4141 ">CONT. RECPT. SERVICE TAX </option>
+                    <option value="4142 ">NO USE-CONT. RECPT. IWSS/GORBI </option>
+                    <option value="4143 ">NO USE-CONT. RECPT. IWSS/NTPC </option>
+                    <option value="4144 ">NO USE-CONT. RECPT. IWSS/KAKRI </option>
+                    <option value="4145 ">NO USE-CONT. RECPT. IWSS/KHD </option>
+                    <option value="4146 ">NO USE-CONT. RECPT. IWSS/SINGRAULI </option>
+                    <option value="4147 ">NO USE-CONT. RECPT. IWSS/NTPC(ADLL.) </option>
+                    <option value="4148 ">NO USE-CONT. RECPT. RPL/RD/WORK </option>
+                    <option value="4151 ">CONT. RECPT. TRANSPORT CHARGES </option>
+                    <option value="4152 ">NO USE-CONT. RECPT. JYT/II SILO (S&E) </option>
+                    <option value="4153 ">NO USE-CONT. RECPT. JYT WORKSHOP </option>
+                    <option value="4156 ">NO USE-CONT. RECPT. GORBI INT CHP(W & </option>
+                    <option value="4157 ">NO USE-CONT. RECPT. GORBI INT CHP(SUPP </option>
+                    <option value="4161 ">NO USE-CONT. RECPT. NGH E&M WORKSHOP </option>
+                    <option value="4162 ">NO USE-CONT. RECPT. NGH HEMM W/S (W&S) </option>
+                    <option value="4163 ">NO USE-CONT. RECPT. NGH HEMM W/S (S&E) </option>
+                    <option value="4164 ">NO USE-CONT. RECPT. NGH/CHP-A (W&S) </option>
+                    <option value="4165 ">NO USE-CONT. RECPT. NGH/CHP-A(SUPPLY) </option>
+                    <option value="4166 ">NO USE-CONT. RECPT. NGH CHP(PKG-B)( W& </option>
+                    <option value="4167 ">NO USE-CONT. RECPT. NGH CHP(PKG-B)(SUP </option>
+                    <option value="4171 ">NO USE-CONT. RECPT. WCL/UMRED (OB) </option>
+                    <option value="4172 ">NO USE-CONT. RECPT. ROAD WORK(BURDWAN) </option>
+                    <option value="4173 ">NO USE-CONT. RECPT. TRNS.WORK L&T (BDK </option>
+                    <option value="4174 ">NO USE-CONT. RECPT. JNV/DURGAPUR </option>
+                    <option value="4175 ">NO USE-CONT. RECPT. PAIKPARA BLDG. </option>
+                    <option value="4176 ">NO USE-CONT. RECPT. KAPURTHALA </option>
+                    <option value="4181 ">NO USE-CONT. RECPT. LKP/HSP </option>
+                    <option value="4182 ">NO USE-CONT. RECPT. LKP/WTP </option>
+                    <option value="4183 ">NO USE-CONT. RECPT. BLPH/UTLS </option>
+                    <option value="4184 ">NO USE-CONT. RECPT. BLPH/CHP </option>
+                    <option value="4185 ">NO USE-CONT. RECPT. BLPH/MCC ROOM </option>
+                    <option value="4186 ">NO USE-CONCT. RECPT. DIPKA SILO (W & S </option>
+                    <option value="4187 ">NO USE-CONCT. RECPT. DIPKA SILO (SUPPL </option>
+                    <option value="4188 ">NO USE-CONT. RECPT. OHP BSP/SAIL (W&S) </option>
+                    <option value="4191 ">CLAIM RECEIVED </option>
+                    <option value="4192 ">ESCALATION BILL RECEIPTS </option>
+                    <option value="4193 ">RETENTION RECEIVED </option>
+                    <option value="4196 ">NO USE-CONT. RECPT. JHR/CHP PART A </option>
+                    <option value="4197 ">NO USE-CONT. RECPT. RIHAND WORK </option>
+                    <option value="4198 ">NO USE-CONT. RECPT. SGRL.TEMPLE </option>
+                    <option value="4199 ">CONT. RECPT. MISC. WORK </option>
+                    <option value="4201 ">SALES-TMT </option>
+                    <option value="4205 ">SCRAP SALES </option>
+                    <option value="4206 ">CONVERSION CHARGES - TMT </option>
+                    <option value="4311 ">MISCELLANEOUS RECEIPTS </option>
+                    <option value="4312 ">DIVIDEND RECEIVED </option>
+                    <option value="4315 ">INSURANCE CLAIM RECEIVED </option>
+                    <option value="4321 ">PROFIT ON SALE OF ASSETS </option>
+                    <option value="4331 ">INTEREST ACCRUED ON DEPOSIT </option>
+                    <option value="4341 ">INTEREST ACCRUED ON LOAN GIVEN </option>
+                    <option value="4351 ">OTHER INTEREST </option>
+                    <option value="4352 ">INTEREST ON I.T. REFUND </option>
+                    <option value="4361 ">RENT RECEIVED </option>
+                    <option value="4362 ">HIRE CHARGES RECEIVED </option>
+                    <option value="4371 ">OLD-SALE TAX REFUND </option>
+                    <option value="4372 ">WATER CHARGES REFUND </option>
+                    <option value="4811 ">OLD CLOSING WORK-IN-PROGRESS </option>
+                    <option value="4821 ">EXCESS PROV. ON INVEST.WRITTEN BACK </option>
+                    <option value="4822 ">OLD CLOSING STOCK OF RAW MATERIALS </option>
+                    <option value="4823 ">OLD-CLOSING STOCK OF FINISHED GOODS </option>
+                    <option value="4825 ">OLD-CLOSING STOCK OF SCRAP </option>
+                    <option value="4831 ">PROFIT & LOSS ADJUST A/C (Dr.) </option>
+                    <option value="4832 ">DIVIDEND A/C </option>
+                    <option value="4833 ">ADDITIONAL TAX ON DIVIDEND </option>
+                    <option value="4834 ">EXCESS I.T. PROV. WRITTEN BACK </option>
+                    <option value="4835 ">OLD-EXCESS PROV. ON INVEST WRITTEN BAC </option>
+                    <option value="4836 ">LIABILITIES WRITTEN BACK </option>
+                    <option value="4837 ">BAD DEBT WRITTEN BACK </option>
+                    <option value="4841 ">PROFIT & LOSS ADJUST A/C (CR.) </option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Bank name" list="BankList" id="bnk_name">
+                  <label for="bnk_name">Bank name</label>
+                  <datalist id="BankList">
+                    <option value="SBI"></option>
+                    <option value="UBI"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Principal amount" id="fd_amt">
+                  <label for="fd_amt">Principal amount</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Interest Rate" id="int_rate">
+                  <label for="int_rate">Interest Rate</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="File No." id="file_no">
+                  <label for="file_no">File No.</label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- end of first group -->
+
+            <div class="form-row no-gutters">
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="mat_amt" name="date" placeholder="Maturity      amount">
+                  <label for="mat_amt">Maturity amount</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="mat_dt" name="date" placeholder="MM/DD/YYYY">
+                  <label for="mat_dt">Maturity date</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="secu_stat" name="date" placeholder="Yes/No">
+                  <label for="secu_stat">Security status</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Security Amount" id="secu_amt">
+                  <label for="secu_amt">Security Amount</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="FD with" id="secu_to">
+                  <label for="secu_to">FD with</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Security for" id="secu_for">
+                  <label for="secu_for">Security for</label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- end of second group -->
+
+            <div class="form-row no-gutters">
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="pledge_dt" name="date" placeholder="MM/DD/YYYY">
+                  <label for="pledge_dt">Pledge date</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="pledge_upto" name="date" placeholder="MM/DD/YYYY">
+                  <label for="pledge_upto">Pledge upto</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" placeholder="FD status" list="FDstatusList" id="fd_status">
+                  <label for="fd_status">FD status</label>
+                  <datalist id="FDstatusList">
+                    <option value="In tenure"></option>
+                    <option value="Encashed"></option>
+                    <option value="Auto-renewed"></option>
+                    <option value="Manually-renewed">
+                    </option>
+                    <option value="Encashed"></option>
+                    <option value="Claimed"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="stat_dt" name="date" placeholder="MM/DD/YYYY" />
+                  <label for="stat_dt">Updated on</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" data-mask="date" id="valid_to" name="date" placeholder="MM/DD/YYYY" />
+                  <label for="valid_to">Status valid upto</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Encashed/Renewed Amount" id="stat_amt">
+                  <label for="stat_amt">Amount</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- end of second group -->
+
+
+            <div class="form-row no-gutters">
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" placeholder="Remarks" id="remarks">
+                  <label for="remarks">Remarks</label>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <input type="button" value="Submit" id="FDinsertBtn" class="btn btn-primary mt-1 ml-2" />
+              </div>
+            </div>
+            <!-- end of third group -->
+
+
+
+          </form>
+        </div>
+
+
+      </div>
+
+      <input class="btn btn-primary offset-5 mt-n4" type="submit" id="A_SubmitBtn" value="Submit Voucher" disabled>
+
+    </div>
+
+
+
+    <!-- display FD Update -->
+
+    <div id="if_FDupdate" style="display:none">
+      <div class="card">
+        <div class="card-header text-white" style="background-color: #05668D ;">
+          <div class="row no-gutters">
+            <div class="col-md-4">FIXED DEPOSIT DETAIL UPDATE</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form id="FDupdateForm">
+            <div class="form-row no-gutters">
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="FD Serial No." list="SelectedMachinecode"
+                    id="fd_entry_srl">
+                  <label for="fd_entry_srl">FD serial no.</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="Bank name" list="BankList" id="bnk_name">
+                  <label for="bnk_name">Bank name</label>
+                  <datalist id="BankList">
+                    <option value="SBI"></option>
+                    <option value="UBI"></option>
+                    <option value="Purchase Order"></option>
+                    <option value="Work Order"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Principal amount" id="fd_amt">
+                  <label for="fd_amt">Principal amount</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Interest Amount" id="int_amt">
+                  <label for="int_amt">Interest Amount</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="TDS amount" id="tds_amt">
+                  <label for="tds_amt">TDS amount</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Maturity amount" id="mat_amt">
+                  <label for="mat_amt">Maturity amount</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- end of first group -->
+            <div class="form-row no-gutters">
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Security Amount" id="secu_amt">
+                  <label for="secu_amt">Security Amount</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="FD with" id="secu_to">
+                  <label for="secu_to">FD with</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Security for" id="secu_for">
+                  <label for="secu_for">Security for</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="FD status" list="FDstatusList" id="fd_status">
+                  <label for="fd_status">FD status</label>
+                  <datalist id="FDstatusList">
+                    <option value="In tenure"></option>
+                    <option value="Encashed"></option>
+                    <option value="Auto-renewed"></option>
+                    <option value="Manually-renewed">
+                    </option>
+                    <option value="Encashed"></option>
+                    <option value="Claimed"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" data-mask="date" id="stat_dt" name="date"
+                    placeholder="MM/DD/YYYY" />
+                  <label for="stat_dt">Updated on</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" data-mask="date" id="valid_to" name="date"
+                    placeholder="MM/DD/YYYY" />
+                  <label for="valid_to">Status valid upto</label>
+                </div>
+              </div>
+
+
+            </div>
+
+            <!-- end of second group -->
+            <div class="form-row no-gutters">
+
+              <div class="col-md-2">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Encashed/Renewed Amount" id="stat_amt">
+                  <label for="stat_amt">Amount</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="Remarks" id="remarks">
+                  <label for="remarks">Remarks</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <input type="button" value="Update" class="btn btn-primary mt-1 ml-2" />
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- display FD search -->
+
+    <div id="if_FDsearch" style="display:none;">
+      <div class="card">
+        <div class="card-header text-white" style="background-color: #05668D ;">
+          <div class="row no-gutters">
+            <!-- <div class="col-md-4">SRL No.<span id="Me_srl_no">1</span> &nbsp; -->
+            FIXED DEPOSIT SEARCH</div>
+          <div class="offset-3 col-md-2">
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <form id="FDsearchForm">
+
+            <div class="form-row no-gutters">
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="Project Code" list="ProjectList" id="projcd">
+                  <label for="projcd">Project Code</label>
+                  <datalist id="ProjectList">
+                    <option value="84"></option>
+                    <option value="11"></option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="FD Number" id="fd_no" onkeyup="myFunction()" />
+                  <label for="fd_no">FD Number</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="FD status" list="FDstatusList" id="fd_stat" />
+                  <label for="fd_stat">FD status</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" placeholder="FD with" id="sec_to" onkeyup="myFunction()">
+                  <label for="sec_to">FD with</label>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input type="text" class="border-bottom" placeholder="Bank name" list="BankList" id="bnk_nm"
+                    onkeyup="myFunction()" />
+                  <label for="bnk_nm">Bank name</label>
+                  <datalist id="BankList">
+                    <option value="SBI"></option>
+                    <option value="UBI"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="form-label-group">
+                  <input class="border-bottom" type="text" data-mask="date" id="mat_dt" placeholder="MM/DD/YYYY"
+                    name="date" />
+                  <label for="mat_dt">Maturity Date</label>
+                </div>
+              </div>
+            </div>
+
+
+          </form>
+          <br>
+          <!-- table that displays form elements -->
+          <div class="card material-table ml-n2 mt-2">
+            <table class="table" id="fd_table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>FD No.</th>
+                  <th>FD Amount</th>
+                  <th>Maturity Date</th>
+                  <th>Maturity Amount</th>
+                  <th>FD with</th>
+                  <th>Bank</th>
+                  <th>Encashed Date</th>
+                  <th>Interest %</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr><td>1</td><td>33089753945</td><td>4891974</td><td>07-17-19</td><td>5956907</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td>6</td></tr>
+                  <tr><td>2</td><td>33089804798</td><td>5306177</td><td>07-17-19</td><td>6461278</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td>5</td></tr>
+                  <tr><td>3</td><td>33089807381</td><td>5306177</td><td>07-17-19</td><td>6461278</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td>8.5</td></tr>
+                  <tr><td>4</td><td>30129122465</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td>6</td></tr>
+                  <tr><td>5</td><td>30129156030</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>6</td><td>30847484814</td><td>633776</td><td>07-17-19</td><td>7717426</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>7</td><td>30269826211</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>8</td><td>30269826460</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>9</td><td>30269826721</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>10</td><td>30269827055</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>11</td><td>30269827259</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>12</td><td>30269827497</td><td>5117242</td><td>07-19-19</td><td>6231213</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-22-16</td><td></td></tr>
+                  <tr><td>13</td><td>32915103535</td><td>500000</td><td>03-30-18</td><td>769312</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>03-30-13</td><td></td></tr>
+                  <tr><td>14</td><td>32915104981</td><td>500000</td><td>03-30-18</td><td>769312</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>03-30-13</td><td></td></tr>
+                  <tr><td>15</td><td>35233161612</td><td>6411182</td><td>09-17-18</td><td>6855015</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>09-17-15</td><td></td></tr>
+                  <tr><td>16</td><td>36186382285</td><td>100000</td><td>10-18-19</td><td>1231439</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>10-18-16</td><td></td></tr>
+                  <tr><td>17</td><td>35698496650</td><td>1000000</td><td>03-04-19</td><td>12415873</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>04-04-16</td><td></td></tr>
+                  <tr><td>18</td><td>35698489291</td><td>1000000</td><td>03-04-19</td><td>12415873</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>04-04-16</td><td></td></tr>
+                  <tr><td>19</td><td>35698487793</td><td>1000000</td><td>03-04-19</td><td>12415873</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>04-04-16</td><td></td></tr>
+                  <tr><td>20</td><td>35698497235</td><td>1000000</td><td>03-04-19</td><td>12415873</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>04-04-16</td><td></td></tr>
+                  <tr><td>21</td><td>35698490104</td><td>1000000</td><td>03-04-19</td><td>12415873</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>04-04-16</td><td></td></tr>
+                  <tr><td>22</td><td>37168451880</td><td>42000</td><td>09-15-18</td><td>449076</td><td>FD With AB</td><td>SBI-OVERSEAS</td><td>09-15-17</td><td></td></tr>
+                  <tr><td>23</td><td>30271534983</td><td>4872069</td><td>07-17-19</td><td>5932669</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>24</td><td>30271535342</td><td>4872069</td><td>07-17-19</td><td>5932669</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>25</td><td>30129161528</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>26</td><td>30129292245</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>27</td><td>30129296136</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>28</td><td>30129294865</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>29</td><td>30129293362</td><td>5243904</td><td>07-17-19</td><td>6385448</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>10-20-16</td><td></td></tr>
+                  <tr><td>30</td><td>32915106285</td><td>100000</td><td>03-30-18</td><td>1538624</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>03-30-13</td><td></td></tr>
+                  <tr><td>31</td><td>36509469935</td><td>5424025</td><td>05-04-18</td><td>591415</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>02-02-17</td><td></td></tr>
+                  <tr><td>32</td><td>36509469945</td><td>3623105</td><td>05-04-18</td><td>3950496</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>02-02-17</td><td></td></tr>
+                  <tr><td>33</td><td>36915836916</td><td>10800</td><td>05-31-18</td><td>115647</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>05-31-17</td><td></td></tr>
+                  <tr><td>34</td><td>37061687827</td><td>65000</td><td>08-03-18</td><td>694998</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>08-03-17</td><td></td></tr>
+                  <tr><td>35</td><td>37191073395</td><td>28470</td><td>09-25-18</td><td>304409</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>09-25-17</td><td></td></tr>
+                  <tr><td>36</td><td>37285430149</td><td>409700</td><td>11-07-18</td><td>4359127</td><td>Margin to Bank</td><td>SBI-OVERSEAS</td><td>11-07-17</td><td></td></tr>
+                  <tr><td>37</td><td>503403030001861</td><td>500000</td><td>04-20-19</td><td>5404471</td><td>Margin to Bank (CM)</td><td>UBI-IFB/KOL</td><td>02-20-18</td><td></td></tr>
+                  <tr><td>38</td><td>503403030000550</td><td>2500</td><td>11-06-18</td><td>2500</td><td>CG SALE TAX</td><td>UBI-IFB/KOL</td><td>11-06-08</td><td></td></tr>
+                  <tr><td>39</td><td>503403030001384</td><td>900000</td><td>06-26-19</td><td>14044583</td><td>FD With AB</td><td>UBI-IFB/KOL</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>40</td><td>503403030001385</td><td>900000</td><td>06-26-19</td><td>14044583</td><td>FD With AB</td><td>UBI-IFB/KOL</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>41</td><td>503403030001386</td><td>900000</td><td>06-26-19</td><td>14044583</td><td>FD With AB</td><td>UBI-IFB/KOL</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>42</td><td>503403030001387</td><td>500000</td><td>06-26-19</td><td>7802546</td><td>FD With AB</td><td>UBI-IFB/KOL</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>43</td><td>545803030003177</td><td>7234329</td><td>07-04-19</td><td>11239304</td><td>Margin to Bank (CM)</td><td>UBI-CAMAC ST</td><td>07-04-14</td><td></td></tr>
+                  <tr><td>44</td><td>545803030003178</td><td>7233253</td><td>07-04-19</td><td>11237632</td><td>Margin to Bank (CM)</td><td>UBI-CAMAC ST</td><td>07-04-14</td><td></td></tr>
+                  <tr><td>45</td><td>545803030003179</td><td>7232177</td><td>07-04-19</td><td>11235961</td><td>Margin to Bank (CM)</td><td>UBI-CAMAC ST</td><td>07-04-14</td><td></td></tr>
+                  <tr><td>46</td><td>401603030149604</td><td>500000</td><td>04-08-19</td><td>5404471</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>02-08-18</td><td></td></tr>
+                  <tr><td>47</td><td>401603030149605</td><td>500000</td><td>04-09-19</td><td>5404471</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>02-09-18</td><td></td></tr>
+                  <tr><td>48</td><td>401603030149607</td><td>500000</td><td>04-12-19</td><td>5404471</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>02-12-18</td><td></td></tr>
+                  <tr><td>49</td><td>503403030001382</td><td>900000</td><td>06-26-19</td><td>14044583</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>50</td><td>503403030001383</td><td>900000</td><td>06-26-19</td><td>14044583</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>06-26-14</td><td></td></tr>
+                  <tr><td>51</td><td>401603030149543</td><td>600000</td><td>03-04-19</td><td>6485365</td><td>Margin to Bank (CS)</td><td>UBI-CAMAC ST</td><td>01-04-18</td><td></td></tr>
+                  <tr><td>52</td><td>401603030148683</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>04-05-16</td><td></td></tr>
+                  <tr><td>53</td><td>401603030148684</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>05/04/2016</td><td></td></tr>
+                  <tr><td>54</td><td>401603030148685</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>04-05-16</td><td></td></tr>
+                  <tr><td>55</td><td>401603030148686</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>04-05-16</td><td></td></tr>
+                  <tr><td>56</td><td>401603030148687</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>04-05-16</td><td></td></tr>
+                  <tr><td>57</td><td>401603030148688</td><td>500000</td><td>04-05-19</td><td>6257788</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>04-05-16</td><td></td></tr>
+                  <tr><td>58</td><td>401603030149329</td><td>500000</td><td>08-30-18</td><td>5421992</td><td>FD With AB</td><td>UBI-CAMAC ST</td><td>06-30-17</td><td></td></tr>
+                  <tr><td>59</td><td>545803030005900</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>60</td><td>545803030005901</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>61</td><td>545803030005902</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>62</td><td>545803030005903</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>63</td><td>545803030005904</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>64</td><td>545803030005905</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>65</td><td>545803030005906</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>66</td><td>545803030005907</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>67</td><td>545803030005908</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>68</td><td>545803030005909</td><td>500000</td><td>10-04-19</td><td>7802546</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>10-04-14</td><td></td></tr>
+                  <tr><td>69</td><td>545803030006694</td><td>990000</td><td>11-20-18</td><td>12445256</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-20-15</td><td></td></tr>
+                  <tr><td>70</td><td>545803030006700</td><td>990000</td><td>11-21-18</td><td>12445256</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-21-15</td><td></td></tr>
+                  <tr><td>71</td><td>545803030006709</td><td>990000</td><td>11-23-18</td><td>12445256</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-23-15</td><td></td></tr>
+                  <tr><td>72</td><td>545803030006710</td><td>990000</td><td>11-24-18</td><td>12445256</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-24-15</td><td></td></tr>
+                  <tr><td>73</td><td>545803030006712</td><td>990000</td><td>11-26-18</td><td>12445256</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-26-15</td><td></td></tr>
+                  <tr><td>74</td><td>545803030006717</td><td>50000</td><td>11-27-18</td><td>628548</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>11-27-15</td><td></td></tr>
+                  <tr><td>75</td><td>545803030006989</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>76</td><td>545803030006990</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>77</td><td>545803030006991</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>78</td><td>545803030006992</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>79</td><td>545803030006993</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>80</td><td>545803030006994</td><td>500000</td><td>04-13-19</td><td>6257788</td><td>FD With AB</td><td>UBI-SAKET/N.DELHI</td><td>04-13-16</td><td></td></tr>
+                  <tr><td>81</td><td>164713000730</td><td>1000000</td><td>11-06-20</td><td>14322606</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>11-06-15</td><td></td></tr>
+                  <tr><td>82</td><td>164713000731</td><td>1000000</td><td>11-06-20</td><td>14322606</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>11-06-15</td><td></td></tr>
+                  <tr><td>83</td><td>164713000732</td><td>1000000</td><td>11-06-20</td><td>14322606</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>11-06-15</td><td></td></tr>
+                  <tr><td>84</td><td>164713000733</td><td>1000000</td><td>11-06-20</td><td>14322606</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>11-06-15</td><td></td></tr>
+                  <tr><td>85</td><td>164713000734</td><td>1000000</td><td>11-06-20</td><td>14322606</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>11-06-15</td><td></td></tr>
+                  <tr><td>86</td><td>164713001028</td><td>1000000</td><td>04-16-18</td><td>11602217</td><td>FD With AB</td><td>ICICI-SAKET/N.DELHI</td><td>04-16-16</td><td></td></tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end of container -->
+
+  <!---------------js for navbar ------------------->
+
+  <script src="../../Modified Homepage/vendor.js"></script>
+  <script src="../../Modified Homepage/homepage_cal.js"></script>
+
+  <script>
+    //collapse accordion when it looses focus
+    $('.dropdown-menu').mouseleave(function () {
+      $('.collapse').collapse('hide');
+    });
+  </script>
+
+
+  <!----------------- js for form --------------------->
+
+  <script src="https://spark.bootlab.io/js/app.js"></script>
+
+  <!-- rule defined for input data mask -->
+  <script src="js/app.js"></script>
+  <script src="jquery.maskedinput.js"></script>
+  <script src="jquery.clearform.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      //-initialize the javascript
+      App.init();
+      App.masks();
+    });
+  </script>
+
+  <script>
+    $(function () {
+      // Select2
+      $(".select2").each(function () {
+        $(this)
+          .wrap("<div class=\"position-relative\"></div>")
+          .select2({
+            dropdownParent: $(this).parent()
+          });
+      })
+
+      //calendar
+      $("input[name=\"date\"]").daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true
+      });
+    });
+  </script>
+
+
+
+  <script>
+    // for displaying BG insert
+    function Display_FDentry() {
+      if (document.getElementById('FDentry').checked) {
+
+        document.getElementById('if_FDupdate').style.display = 'none';
+        document.getElementById('if_FDsearch').style.display = 'none';
+
+
+        document.getElementById('if_FDinsert').style.display = 'block';
+      }
+    }
+
+
+    //for displaying material
+    function Display_FDupdate() {
+      if (document.getElementById('FDupdate').checked) {
+
+        document.getElementById('if_FDinsert').style.display = 'none';
+        document.getElementById('if_FDsearch').style.display = 'none';
+
+
+        document.getElementById('if_FDupdate').style.display = 'block';
+      }
+    }
+
+
+    //for displaying bg grid
+
+
+    function Display_FDsearch() {
+      if (document.getElementById('FDsearch').checked) {
+
+        document.getElementById('if_FDinsert').style.display = 'none';
+        document.getElementById('if_FDupdate').style.display = 'none';
+
+        document.getElementById('if_FDsearch').style.display = 'block';
+        // document.getElementById("FDsearchForm").reset();
+        // document.getElementById("bg_table").reset();
+
+      }
+    }
+  </script>
+
+
+  <script>
+    $(document).ready(function () {
+      $.getJSON("/csvjson.json", function (data) {
+        var fd_data = '';
+        $.each(data, function (key, value) {
+          fd_data += '<tr>';
+          fd_data += '<td>' + key + '</td>';
+          fd_data += '<td>' + value.fdr_no + '</td>';
+          fd_data += '<td>' + value.fd_amount + '</td>';
+          fd_data += '<td>' + value.maturity_date + '</td>';
+          fd_data += '<td>' + value.matured_amt + '</td>';
+          fd_data += '<td>' + value.security_to + '</td>';
+          fd_data += '<td>' + value.bank_nm +'</td>';
+          fd_data += '<td>' + value.encash_date + '</td>';
+          fd_data += '<td>' + value.int_rate + '</td>';
+          fd_data += '<tr>';
+        });
+        $('#fd_table').append(fd_data);
+      });
+
+    });
+  </script>
+
+
+  <script>
+    function myFunction() {
+      var input1, filter1, table, tr, td1, i, txtValue1;
+      var input2, filter2, td2, txtValue2;
+
+      input1 = document.getElementById("sec_to");
+      filter1 = input1.value.toUpperCase();
+
+      input2 = document.getElementById("bnk_nm");
+      filter2 = input2.value.toUpperCase();
+
+      input3 = document.getElementById("fd_no");
+      filter3 = input3.value.toUpperCase();
+
+      table = document.getElementById("fd_table");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+
+        td1 = tr[i].getElementsByTagName("td")[5];
+        td2 = tr[i].getElementsByTagName("td")[6];
+        td3 = tr[i].getElementsByTagName("td")[1];
+
+        if (td1 || td2) {
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          txtValue3 = td3.textContent || td3.innerText;
+
+          if ((txtValue1.toUpperCase().indexOf(filter1) > -1) &&
+            (txtValue2.toUpperCase().indexOf(filter2) > -1) &&
+            (txtValue3.toUpperCase().indexOf(filter3) > -1)) {
+
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
